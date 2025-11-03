@@ -2,15 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "../Components/Card";
 
-interface Users {
-  _id: number;
-  middlename: string;
-  lastname: string;
-  phonenumber: number;
-  email: string;
-  password: string;
-  username: string;
-}
 interface Data {
   getUsers: Users[];
 }
@@ -33,19 +24,33 @@ const Api = () => {
     fetchProduct();
   }, []);
 
+
+
+
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-4 bg-amber-700 justify-between items-center">
+      <input
+        type="text"
+        placeholder="Select Card...."
+        className="bg-white h-[50px] w-[400px] rounded-2xl px-4 justify-center items-center flex ml-40 mt-9"
+        // value={}
+        // onChange={}
+      />
       {data &&
         data.getUsers.map((e) => (
           <Card
             key={e._id}
             _id={e._id}
-            middlename={e.middlename}
-            username={e.username}
-            email={e.email}
-            phonenumber={e.phonenumber}
-            lastname={e.lastname}
-            password={e.password}
+            Username={e.Username}
+            Firstname={e.Firstname}
+            Middlename={e.Middlename}
+            Lastname={e.Lastname}
+            Age={e.Age}
+            Email={e.Email}
+            Phonenumber={e.Phonenumber}
+            Country={e.Country}
+            State={e.State}
+            City={e.City}
           />
         ))}
     </div>
